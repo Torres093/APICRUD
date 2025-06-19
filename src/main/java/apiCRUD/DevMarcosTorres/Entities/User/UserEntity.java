@@ -1,9 +1,6 @@
 package apiCRUD.DevMarcosTorres.Entities.User;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.Size;
 import lombok.EqualsAndHashCode;
@@ -18,6 +15,8 @@ import lombok.ToString;
 @EqualsAndHashCode
 public class UserEntity {
     @Id //PRIMARY KEY
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seq_usuario")
+    @SequenceGenerator(name = "seq_usuario", sequenceName = "seq_usuario", allocationSize = 1)
     @Column(name= "IDUSUARIO")
     private Long id;
     @Column(name= "NOMBRE")
